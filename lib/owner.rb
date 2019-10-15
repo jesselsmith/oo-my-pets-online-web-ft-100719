@@ -30,7 +30,7 @@ class Owner
 
   def buy_pet(pet, pet_category)
     if self.pets.has_key?(pet_category)
-      pets[pet_category] << pet
+      pets[pet_category] << pet unless pets[pet_category].include?(pet)
     else
       pets[pet_category] = [pet]
     end
