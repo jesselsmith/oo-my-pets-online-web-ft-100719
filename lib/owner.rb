@@ -1,3 +1,5 @@
+require 'pry'
+
 class Owner
   attr_reader :name, :species, :pets
   @@all = []
@@ -92,5 +94,6 @@ class Owner
       end
     end
     self.pets.clear
+    binding.pry
   end
 end
