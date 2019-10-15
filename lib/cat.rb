@@ -18,8 +18,4 @@ class Cat
     @@all
   end
 
-  def buy_cat(cat)
-    cat.owner = self
-  end
-
 end
