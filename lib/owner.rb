@@ -37,6 +37,19 @@ class Owner
     pet.owner = self
   end
 
+  def buy_helper(pet_input, pet_category, pet_category_class)
+    if pet_input.is_a?(pet_category_class)
+      buy_pet(pet_input, pet_category)
+    elsif pet_input.is_a?(String)
+      pet_proper = pet_category_class.all.find{|pet_object| pet_object.name == pet_input}
+      if pet_proper
+        buy_pet(pet_proper, pet_category)
+      else
+        buy_pet(pet_category_class.new(pet_input, self), pet_category)
+      end
+    else
+      puts "Not a #{pet_category.to_s.chop}."
+
   def buy_cat(cat)
     if cat.is_a?(Cat)
       buy_pet(cat, :cats)
