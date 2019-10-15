@@ -4,7 +4,8 @@ class Cat
   @@all = []
 
   def owner=(owner)
-    owner.buy_cat(self) unless self.owner == owner
+    @owner = owner
+    owner.buy_cat(self) unless owner.cats.include?(self)
   end
 
 
