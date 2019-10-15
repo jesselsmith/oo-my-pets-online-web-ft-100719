@@ -92,6 +92,5 @@ class Owner
       end
     end
     self.pets.clear
-    binding.pry
   end
 end
