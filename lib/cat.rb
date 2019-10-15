@@ -21,5 +21,5 @@ class Cat
   def buy_cat(cat)
     cat.owner = self
   end
-    
+
 end
