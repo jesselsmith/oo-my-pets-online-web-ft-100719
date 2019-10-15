@@ -3,7 +3,7 @@ class Owner
   def initialize(name)
     @name = name
     @name.freeze
-    @species = "Human"
+    @species = "human"
     @species.freeze
   end
 
