@@ -38,7 +38,18 @@ class Owner
   end
 
   def buy_cat(cat)
-    buy_pet(cat, :cats)
+    if cat.is_a?(Cat)
+      buy_pet(cat, :cats)
+    elsif cat.is_a?(String)
+      cat_proper = Cats.all.find{|cat_object| cat_object.name == cat}
+      if cat_proper
+        buy_pet(cat_proper, :cats)
+      else
+        buy_pet(Cat.new(cat, self), :cats)
+      end
+    else
+      puts "Not a cat"
+    end
   end
 
   def buy_dog(dog)
