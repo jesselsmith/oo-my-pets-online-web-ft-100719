@@ -6,7 +6,7 @@ class Cat
   def owner=(owner)
     owner.buy_cat(self) unless self.owner == owner
   end
-  
+
 
   def initialize(name, owner)
     @name = name
