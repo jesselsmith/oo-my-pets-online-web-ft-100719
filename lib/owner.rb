@@ -4,6 +4,7 @@ class Owner
   def initialize(name)
     @name = name
     @species = "human"
+    @pets = {}
     self.save
   end
 
@@ -35,8 +36,8 @@ class Owner
     Dog.all.select{|dog| dog.owner = self}
   end
 
-  # def buy_cat(cat)
-  #   cat.owner = self
-  # end
+  def buy_cat(cat)
+    
+  end
 
 end
