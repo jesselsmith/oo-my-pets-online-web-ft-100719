@@ -49,24 +49,15 @@ class Owner
       end
     else
       puts "Not a #{pet_category.to_s.chop}."
-
-  def buy_cat(cat)
-    if cat.is_a?(Cat)
-      buy_pet(cat, :cats)
-    elsif cat.is_a?(String)
-      cat_proper = Cat.all.find{|cat_object| cat_object.name == cat}
-      if cat_proper
-        buy_pet(cat_proper, :cats)
-      else
-        buy_pet(Cat.new(cat, self), :cats)
-      end
-    else
-      puts "Not a cat"
     end
   end
 
+  def buy_cat(cat)
+    buy_helper(cat, :cats, Cat)
+  end
+
   def buy_dog(dog)
-    buy_pet(dog, :dogs)
+    buy_helper(dog, :dogs, Dog)
   end
 
   def cats
