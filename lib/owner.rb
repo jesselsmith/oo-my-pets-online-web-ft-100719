@@ -46,11 +46,19 @@ class Owner
   end
 
   def cats
-    pets[:cats]
+    if pets[:cats]
+      pets[:cats]
+    else
+      []
+    end
   end
 
   def dogs
-    pets[:dogs]
+    if pets[:dogs]
+      pets[:dogs]
+    else
+      []
+    end
   end
 
 end
