@@ -6,4 +6,8 @@ class Owner
     @species = "Human"
     @species.freeze
   end
+
+  def say_species
+    @species
+  end
 end
