@@ -1,5 +1,5 @@
 require_relative 'spec_helper.rb'
-
+require 'pry'
 describe "Associations" do
   before do
     @owner = Owner.new("Timmy")
@@ -73,6 +73,7 @@ describe "Associations" do
           expect(dog).to be_a(Dog)
         end
 
+        binding.pry
         expect(@owner.dogs.count).to eq(3)
       end
 
