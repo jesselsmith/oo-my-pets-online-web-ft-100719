@@ -29,26 +29,26 @@ class Owner
   end
 
   def buy_pet(pet, pet_category)
-    if self.pets.has_key?(pet_category)
-      pets[pet_category] << pet unless pets[pet_category].include?(pet)
-    else
-      pets[pet_category] = [pet]
+    if self.pets.has_key?(pet_category) #if this category of pet already exists for the owner
+      pets[pet_category] << pet unless pets[pet_category].include?(pet) #put the pet into the category, unless the owner already owns the pet
+    else #if they didn't have any of this kind of pet before
+      pets[pet_category] = [pet] #create a new pet category and add the pet to it
     end
-    pet.owner = self
+    pet.owner = self #make sure the pet knows who owns it
   end
 
   def buy_helper(pet_input, pet_category, pet_category_class)
-    if pet_input.is_a?(pet_category_class)
-      buy_pet(pet_input, pet_category)
-    elsif pet_input.is_a?(String)
-      pet_proper = pet_category_class.all.find{|pet_object| pet_object.name == pet_input}
-      if pet_proper
-        buy_pet(pet_proper, pet_category)
+    if pet_input.is_a?(pet_category_class)#if the pet given is a pet object of the class provided
+      buy_pet(pet_input, pet_category) #just use the buy_pet method
+    elsif pet_input.is_a?(String) #if the pet given is a string of a pet name
+      pet_proper = pet_category_class.all.find{|pet_object| pet_object.name == pet_input} #try and see if that pet already exists
+      if pet_proper #if the pet already exists
+        buy_pet(pet_proper, pet_category) #buy that pet
       else
-        buy_pet(pet_category_class.new(pet_input, self), pet_category)
+        buy_pet(pet_category_class.new(pet_input, self), pet_category) #if it doesn't exist, make a new pet and buy that
       end
     else
-      puts "Not a #{pet_category.to_s.chop}."
+      puts "Not a #{pet_category.to_s.chop}." #otherwise, let them know what they provided was bad input
     end
   end
 
