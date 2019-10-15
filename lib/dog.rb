@@ -5,7 +5,7 @@ class Dog
 
   def owner=(owner)
     @owner = owner
-    owner.buy_dog(self) unless owner.dogs.include?(self)
+    owner.buy_dog(self) unless owner.dogs.include?(self) || !owner
   end
 
   def initialize(name, owner)
