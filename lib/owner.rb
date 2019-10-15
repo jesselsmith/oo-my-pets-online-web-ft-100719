@@ -1,5 +1,5 @@
 class Owner
-  attr_reader :name, :species
+  attr_reader :name, :species, :pets
   @@all = []
   def initialize(name)
     @name = name
@@ -37,7 +37,12 @@ class Owner
   end
 
   def buy_cat(cat)
-
+    if self.pets.has_key?(:Cats)
+      pets[:Cats] << cat
+    else
+      pets[:Cats] = [cat]
+    end
+    cat.owner = self
   end
 
 end
