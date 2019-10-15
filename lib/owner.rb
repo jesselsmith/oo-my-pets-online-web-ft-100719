@@ -41,7 +41,7 @@ class Owner
     if cat.is_a?(Cat)
       buy_pet(cat, :cats)
     elsif cat.is_a?(String)
-      cat_proper = Cats.all.find{|cat_object| cat_object.name == cat}
+      cat_proper = Cat.all.find{|cat_object| cat_object.name == cat}
       if cat_proper
         buy_pet(cat_proper, :cats)
       else
