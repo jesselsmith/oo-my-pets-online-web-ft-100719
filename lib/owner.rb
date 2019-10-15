@@ -74,8 +74,8 @@ class Owner
     else
       []
     end
-  end  
-  
+  end
+
   def walk_dogs
     self.dogs.each{|dog| dog.mood = "happy"}
   end
@@ -83,5 +83,5 @@ class Owner
   def feed_cats
     self.cats.each{|cat| cat.mood = "happy"}
   end
-  
+
 end
